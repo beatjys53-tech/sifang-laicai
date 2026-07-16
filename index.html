@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>鍥涙柟鏉ヨ储锝淎鑲″熀鏈潰绛涢€夊伐鍏?/title>
+  <meta name="description" content="鎸夎祫浜ц礋鍊虹巼銆佸噣鍒╂鼎鐜伴噾鍚噺銆佹瘡鑲¤祫鏈叕绉拰姣忚偂鍑€璧勪骇绛涢€夋勃娣变含A鑲°€?>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<main>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">鍥?/span><span>鍥涙柟鏉ヨ储</span></a>
+    <div class="live-pill"><span></span>A 鑲″湪绾挎暟鎹?/div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <p class="eyebrow">FUNDAMENTAL STOCK SCREENER</p>
+      <h1>鐢ㄥ洓涓‖鎸囨爣锛?br><em>绛涘嚭鏇寸ǔ鐨勫叕鍙搞€?/em></h1>
+      <p class="lede">鎶婅礋鍊恒€佺幇閲戣川閲忓拰姣忚偂瀹跺簳鏀惧湪鍚屼竴寮犺〃閲屻€傝鎯呴殢甯傚満鏇存柊锛岃储鍔℃暟鎹彇鏈€杩戜竴鏈熷凡鎶湶鎶ュ憡銆?/p>
+    </div>
+    <div class="market-note"><span>01</span><p>閫傜敤鑼冨洿</p><strong>娌繁浜?A 鑲?/strong><small>涓嶅惈鍩洪噾銆佸€哄埜鍙婇€€甯傝瘉鍒?/small></div>
+  </section>
+
+  <section class="workspace">
+    <aside class="filter-panel">
+      <div class="section-heading"><div><span>SCREENING RULES</span><h2>璁惧畾绛涢€夋潯浠?/h2></div><button id="reset" class="text-button">鎭㈠榛樿</button></div>
+      <form id="screen-form">
+        <div class="field-grid">
+          <label class="metric-field"><span class="field-number">01</span><span class="field-label">璧勪骇璐熷€烘瘮鐜?/span><span class="field-hint">璐熷€哄崰鎬昏祫浜х殑姣斾緥</span><span class="input-shell"><b>&lt;</b><input id="debtMax" type="number" step="1" value="60" required><i>%</i></span></label>
+          <label class="metric-field"><span class="field-number">02</span><span class="field-label">鍑€鍒╂鼎鐜伴噾鍚噺</span><span class="field-hint">缁忚惀鐜伴噾娴?/ 鍑€鍒╂鼎</span><span class="input-shell"><b>&gt;</b><input id="cashMin" type="number" step="5" value="100" required><i>%</i></span></label>
+          <label class="metric-field"><span class="field-number">03</span><span class="field-label">姣忚偂璧勬湰鍏Н閲?/span><span class="field-hint">姣忚偂鍙綊灞炶祫鏈叕绉?/span><span class="input-shell"><b>&gt;</b><input id="reserveMin" type="number" step="0.1" value="1" required><i>鍏?/i></span></label>
+          <label class="metric-field"><span class="field-number">04</span><span class="field-label">姣忚偂鍑€璧勪骇</span><span class="field-hint">姣忚偂璐﹂潰鍑€璧勪骇</span><span class="input-shell"><b>&gt;</b><input id="bookMin" type="number" step="0.1" value="5" required><i>鍏?/i></span></label>
+        </div>
+        <button id="screen-button" class="primary-button" type="submit"><span>寮€濮嬮€夎偂</span><b>鈫?/b></button>
+      </form>
+      <p class="formula-note">鍑€鍒╂鼎鐜伴噾鍚噺 = 姣忚偂缁忚惀鐜伴噾娴?梅 姣忚偂鏀剁泭 脳 100%銆備粎绾冲叆姣忚偂鏀剁泭涓烘鐨勫叕鍙搞€?/p>
+    </aside>
+
+    <section class="results-panel">
+      <div class="results-head">
+        <div><span class="mini-label">MATCHED COMPANIES</span><h2 id="result-title">绛夊緟绛涢€?/h2><p id="result-meta">杈撳叆鏉′欢鍚庤幏鍙栨渶鏂板彲鐢ㄦ暟鎹?/p></div>
+        <div class="result-actions"><button id="copy-link">澶嶅埗鏉′欢閾炬帴</button><button id="export" disabled>瀵煎嚭 CSV</button></div>
+      </div>
+      <div id="status"></div>
+      <div id="table-wrap" class="table-wrap" hidden>
+        <table><thead><tr><th>鍏徃 / 琛屼笟</th><th>鏈€鏂颁环</th><th>娑ㄨ穼骞?/th><th>璧勪骇璐熷€虹巼</th><th>鐜伴噾鍚噺</th><th>姣忚偂璧勬湰鍏Н</th><th>姣忚偂鍑€璧勪骇</th></tr></thead><tbody id="results-body"></tbody></table>
+        <p id="limit-note" class="limit-note" hidden>鍖归厤鏁伴噺杈冨锛屽綋鍓嶅睍绀虹幇閲戝惈閲忔渶楂樼殑鍓?500 瀹讹紱瀵煎嚭鏂囦欢涓庤〃鏍间竴鑷淬€?/p>
+      </div>
+    </section>
+  </section>
+
+  <footer><p>鏁版嵁鏉ヨ嚜鍏紑甯傚満涓庝笂甯傚叕鍙稿畾鏈熸姤鍛婏紝浠呬緵鐮旂┒鍙傝€冿紝涓嶆瀯鎴愪换浣曟姇璧勫缓璁€?/p><span>鍥涙柟鏉ヨ储 路 淇濇寔瀹℃厧</span></footer>
+</main>
+<script src="./app.js" defer></script>
+</body>
+</html>
+
